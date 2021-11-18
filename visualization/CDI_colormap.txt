@@ -1,0 +1,8 @@
+# QGIS Generated Color Map Export File
+INTERPOLATION:EXACT
+0,255,255,255,0,Normal
+1,244,241,17,179,Watch
+2,253,117,0,179,Warning
+3,255,14,14,179,Alert
+4,178,55,2,179,Partial recovery
+5,149,236,149,179,Full recovery

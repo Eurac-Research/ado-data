@@ -24,7 +24,8 @@ def main():
 
     for i in index_list:
         print(i)
-        compute_nuts3_stats(nuts3, i)
+        index_drange = compute_nuts3_stats(nuts3, i)
+        generate_metadata(i, index_drange)
 
     merge_time_series(nuts3, index_list)
 
@@ -44,7 +45,7 @@ def merge_time_series(nuts3, index_list):
             os.remove(ts_inpath)
 
         # concatenate time series
-        ts_out = pd.concat(ts_list)
+        ts_out = pd.concat(ts_list, axis=1)
         # reformat for output
         ts_outpath = '../json/timeseries/NUTS3_' + iid + '.json'
         ts_list = list()
@@ -55,9 +56,59 @@ def merge_time_series(nuts3, index_list):
             json.dump(ts_list, outfile)
 
 
+def generate_metadata(index, drange):
+    geodf = dict()
+
+    # add start and end dates as well as the colormaps
+    timerange = {"type": "date",
+                 "properties": {
+                     "firstDate": drange[0].strftime("%Y-%m-%d"),
+                     "lastDate": drange[-1].strftime("%Y-%m-%d")
+                 }}
+
+    geodf['timerange'] = timerange
+
+    if index[0:2] == 'SP':
+        cmapname = 'SPI_SPEI'
+    elif index[0] == 'V':
+        cmapname = 'VCI_VHI'
+    else:
+        cmapname = index
+    # get colormap
+    cmap = pd.read_csv('../visualization/' + cmapname + '_colormap_hex.txt',
+                       header=None,
+                       index_col=False,
+                       skiprows=2,
+                       parse_dates=False)
+    colormap = {"type": "fill",
+                "paint": {
+                    "property": "value",
+                    "interpolation": "exact" if index == 'CDI' else "linear",
+                    "stops": [x[1].to_list() for x in cmap.iterrows()]
+                }}
+    geodf['colormap'] = colormap
+
+    # add index long name
+    if index == 'CDI':
+        geodf['long_name'] = 'Combined Drought Index'
+    elif index == 'VHI':
+        geodf['long_name'] = 'Vegetation Health Index'
+    elif index == 'VCI':
+        geodf['long_name'] = 'Vegetation Condition Index'
+    elif index[0:3] == 'SPI':
+        geodf['long_name'] = 'Standardized Precipitation Index -' + index[4::]
+    elif index[0:4] == 'SPEI':
+        geodf['long_name'] = 'Standardaized Precipitation and Evapotranspiration Index - ' + index[5::]
+    elif index == 'SMA':
+        geodf['long_name'] = 'Soil Moisture Anomalies'
+
+    with open('../json/metadata/' + index + '.json', 'w') as json_file:
+        json.dump(geodf, json_file)
+
+
 def compute_nuts3_stats(nuts3, index='SPI3'):
     today = dt.datetime.strptime('2018-08-24', '%Y-%m-%d') #TODO: modify to use actual date of the day the script is run
-    drange = pd.date_range(today - dt.timedelta(days=365), today, freq='1D')
+    drange = pd.date_range(today - dt.timedelta(days=10), today, freq='1D')
 
     basepath = get_basepath(index)
     path_list = list()
@@ -92,13 +143,16 @@ def compute_nuts3_stats(nuts3, index='SPI3'):
             r_stats = get_stats(i_path, index)
             print(i_date)
             for ifeat, istat in zip(tmp_nuts3.iterfeatures(), r_stats):
-                if np.isinf(istat['nanmean']) or istat['count'] == 0:
+                if istat['mean'] is None or istat['count'] == 0:
                     ifeat['properties'][index][i_date.strftime('%Y-%m-%d')] = None
                 else:
-                    ifeat['properties'][index][i_date.strftime('%Y-%m-%d')] = round(istat['nanmean'].astype(float), 3)
+                    if index == 'CDI':
+                        ifeat['properties'][index][i_date.strftime('%Y-%m-%d')] = int(istat['mostf'])
+                    else:
+                        ifeat['properties'][index][i_date.strftime('%Y-%m-%d')] = round(istat['mean'], 3)
 
     # date range to be deleted after time series export
-    delrange = pd.date_range(today-dt.timedelta(days=365), today-dt.timedelta(days=335))
+    delrange = pd.date_range(today-dt.timedelta(days=10), today-dt.timedelta(days=5))
 
     # create time series per nuts region
     for ifeat in tmp_nuts3.iterfeatures():
@@ -117,6 +171,8 @@ def compute_nuts3_stats(nuts3, index='SPI3'):
 
     tmp_nuts3_4326 = round_coordinates(tmp_nuts3.to_crs("EPSG:4326"))
     tmp_nuts3_4326.to_file('../json/' + index + '-latest.geojson', driver='GeoJSON', encoding='utf-8')
+
+    return drange
 
 
 def compare_date(index, index_date, ts_date):
@@ -168,11 +224,15 @@ def get_stats(r_path, index):
     if index == 'CDI':
         r_stats = zonal_stats("/mnt/CEPH_PROJECTS/ADO/GIS/ERTS89_LAEA/alpinespace_eusalp_NUTS3_simple.shp",
                               r_path,
-                              add_stats={'nanmean': most_frequent}, nodata=np.nan)
+                              add_stats={'mostf': most_frequent}, nodata=np.nan)
+    elif index == 'SMA':
+        r_stats = zonal_stats("/mnt/CEPH_PROJECTS/ADO/GIS/ERTS89_LAEA/alpinespace_eusalp_NUTS3_simple.shp",
+                              r_path, band=2)
+                              #add_stats={'nanmean': mymean}, band=2)
     else:
         r_stats = zonal_stats("/mnt/CEPH_PROJECTS/ADO/GIS/ERTS89_LAEA/alpinespace_eusalp_NUTS3_simple.shp",
-                              r_path,
-                              add_stats={'nanmean': mymean})
+                              r_path)
+                              #add_stats={'nanmean': mymean})
     return r_stats
 
 
