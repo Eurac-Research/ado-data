@@ -1,0 +1,10 @@
+on: [push]
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy Stage
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: 'https://api.vercel.com/v1/integrations/deploy/prj_5W6lomDnufu2SgWfsNVkyHMvjIfM/A5YWv2dShL'
+        method: 'POST'
