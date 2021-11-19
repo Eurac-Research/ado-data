@@ -1,7 +1,9 @@
 # QGIS Generated Color Map Export File
 INTERPOLATION:INTERPOLATED
--3,#D7191C,70,"extremely dry"
--1.5,#FDAE61,70,"dry"
-0,#FFFFBF,70,"normal"
-1.5,#ABDDA4,70,"wet"
-3,#2B83BA,70,"extremely wet"
+-2,#D7191C,70,"Extremely dry"
+-1.5,#FDAE61,70,"Very dry"
+-1,#FFFFBF,70,"Moderately dry"
+0,#FFFFFF,70,"Normal"
+1,#F599F6,70,"Moderately wet"
+1.5,#B467DD,70,"Very wet"
+2,#450199,70,"Extremely wet"
