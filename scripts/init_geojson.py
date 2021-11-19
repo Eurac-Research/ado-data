@@ -20,12 +20,17 @@ def main():
                   'SMA', 'CDI']
 
     # import shapefile
-    nuts3 = gpd.read_file('/mnt/CEPH_PROJECTS/ADO/GIS/ERTS89_LAEA/alpinespace_eusalp_NUTS3_simple.shp')
+    nuts3 = gpd.read_file('/mnt/CEPH_PROJECTS/ADO/GIS/ERTS89_LAEA/alpinespace_eusalp_NUTS3_simple.shp',
+                          encoding='utf-8')
+
+    # set date range
+    today = dt.datetime.strptime('2018-08-24',
+                                 '%Y-%m-%d')  # TODO: modify to use actual date of the day the script is run
+    drange = pd.date_range(today - dt.timedelta(days=364), today, freq='1D')
 
     for i in index_list:
         print(i)
-        index_drange = compute_nuts3_stats(nuts3, i)
-        generate_metadata(i, index_drange)
+        compute_nuts3_stats(drange, nuts3, i)
 
     merge_time_series(nuts3, index_list)
 
@@ -48,16 +53,27 @@ def merge_time_series(nuts3, index_list):
         ts_out = pd.concat(ts_list, axis=1)
         # reformat for output
         ts_outpath = '../json/timeseries/NUTS3_' + iid + '.json'
-        ts_list = list()
-        for i in ts_out.iterrows():
-            ts_list.append({**{'date': i[0].strftime('%Y-%m-%d')}, **i[1].to_dict()})
-        # write time series
-        with open(ts_outpath, 'w') as outfile:
-            json.dump(ts_list, outfile)
+        ts_out.reset_index(level=0, inplace=True)
+        ts_out['date'] = ts_out['date'].astype(str)
+        ts_out.to_json(ts_outpath, orient='records', double_precision=3)
 
 
-def generate_metadata(index, drange):
+def generate_metadata(outpath, index, drange):
     geodf = dict()
+
+    # add index long name
+    if index == 'CDI':
+        geodf['long_name'] = 'Combined Drought Index'
+    elif index == 'VHI':
+        geodf['long_name'] = 'Vegetation Health Index'
+    elif index == 'VCI':
+        geodf['long_name'] = 'Vegetation Condition Index'
+    elif index[0:3] == 'SPI':
+        geodf['long_name'] = 'Standardized Precipitation Index - ' + index[4::]
+    elif index[0:4] == 'SPEI':
+        geodf['long_name'] = 'Standardaized Precipitation and Evapotranspiration Index - ' + index[5::]
+    elif index == 'SMA':
+        geodf['long_name'] = 'Soil Moisture Anomalies'
 
     # add start and end dates as well as the colormaps
     timerange = {"type": "date",
@@ -88,28 +104,19 @@ def generate_metadata(index, drange):
                 }}
     geodf['colormap'] = colormap
 
-    # add index long name
-    if index == 'CDI':
-        geodf['long_name'] = 'Combined Drought Index'
-    elif index == 'VHI':
-        geodf['long_name'] = 'Vegetation Health Index'
-    elif index == 'VCI':
-        geodf['long_name'] = 'Vegetation Condition Index'
-    elif index[0:3] == 'SPI':
-        geodf['long_name'] = 'Standardized Precipitation Index -' + index[4::]
-    elif index[0:4] == 'SPEI':
-        geodf['long_name'] = 'Standardaized Precipitation and Evapotranspiration Index - ' + index[5::]
-    elif index == 'SMA':
-        geodf['long_name'] = 'Soil Moisture Anomalies'
+    # with open('../json/metadata/' + index + '.json', 'w') as json_file:
+    #     json.dump(geodf, json_file)
+    with open(outpath, 'r') as infile:
+        geojson = json.load(infile)
 
-    with open('../json/metadata/' + index + '.json', 'w') as json_file:
-        json.dump(geodf, json_file)
+    geojson['metadata'] = geodf
+    ordered_geojson = {k: geojson[k] for k in ['type', 'crs', 'metadata', 'features']}
+    with open(outpath, 'w') as outfile:
+        json.dump(ordered_geojson, outfile)
 
 
-def compute_nuts3_stats(nuts3, index='SPI3'):
-    today = dt.datetime.strptime('2018-08-24', '%Y-%m-%d') #TODO: modify to use actual date of the day the script is run
-    drange = pd.date_range(today - dt.timedelta(days=10), today, freq='1D')
-
+def compute_nuts3_stats(drange, nuts3, index='SPI3'):
+    # find all index files
     basepath = get_basepath(index)
     path_list = list()
     for path in basepath.glob('*.tif'):
@@ -152,7 +159,7 @@ def compute_nuts3_stats(nuts3, index='SPI3'):
                         ifeat['properties'][index][i_date.strftime('%Y-%m-%d')] = round(istat['mean'], 3)
 
     # date range to be deleted after time series export
-    delrange = pd.date_range(today-dt.timedelta(days=10), today-dt.timedelta(days=5))
+    delrange = drange[0:335]
 
     # create time series per nuts region
     for ifeat in tmp_nuts3.iterfeatures():
@@ -170,9 +177,9 @@ def compute_nuts3_stats(nuts3, index='SPI3'):
             del ifeat['properties'][index][ddate.date().strftime('%Y-%m-%d')]
 
     tmp_nuts3_4326 = round_coordinates(tmp_nuts3.to_crs("EPSG:4326"))
-    tmp_nuts3_4326.to_file('../json/' + index + '-latest.geojson', driver='GeoJSON', encoding='utf-8')
-
-    return drange
+    geo_outpath = '../json/' + index + '-latest.geojson'
+    tmp_nuts3_4326.to_file(geo_outpath, driver='GeoJSON', encoding='utf-8')
+    generate_metadata(geo_outpath, index, drange[335::])
 
 
 def compare_date(index, index_date, ts_date):
