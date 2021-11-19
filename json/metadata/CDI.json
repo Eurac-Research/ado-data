@@ -39,7 +39,7 @@
           ]
         ]  
       },
-      "fill-opacity": "0.7"
+      "fill-opacity": 0.7
     }
   },
   "long_name": "Combined Drought Index"
