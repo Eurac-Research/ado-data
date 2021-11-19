@@ -12,43 +12,30 @@
     "paint": {
       "fill-color": {
         "property": "value",
-        "interpolation": "exact",
         "stops": [
           [
             0,
-            "#FFFFFF",
-            100,
-            "Normal"
+            "#FFFFFF"
           ],
           [
             1,
-            "#F4F111",
-            70,
-            "Watch"
+            "#F4F111"
           ],
           [
             2,
-            "#FD7501",
-            70,
-            "Warning"
+            "#FD7501"
           ],
           [
             3,
-            "#FF0E0E",
-            70,
-            "Alert"
+            "#FF0E0E"
           ],
           [
             4,
-            "#B23702",
-            70,
-            "Partial recovery"
+            "#B23702"
           ],
           [
             5,
-            "#95EC95",
-            70,
-            "Full recovery"
+            "#95EC95"
           ]
         ]  
       },
