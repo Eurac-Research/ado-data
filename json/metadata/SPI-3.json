@@ -1,1 +1,25 @@
-{"timerange": {"type": "date", "properties": {"firstDate": "2018-08-20", "lastDate": "2018-08-24"}}, "colormap": {"type": "fill", "paint": {"property": "value", "interpolation": "linear", "stops": [[-3.0, "#D7191C", 70, "extremely dry"], [-1.5, "#FDAE61", 70, "dry"], [0.0, "#FFFFBF", 70, "normal"], [1.5, "#ABDDA4", 70, "wet"], [3.0, "#2B83BA", 70, "extremely wet"]]}}, "long_name": "Standardized Precipitation Index -3"}
+{
+  "timerange": {
+    "type": "date",
+    "properties": {
+      "firstDate": "2018-07-26",
+      "lastDate": "2018-08-24"
+    }
+  },
+  "colormap": {
+    "type": "fill",
+    "paint": {
+      "property": "value",
+      "interpolation": "linear",
+      "stops": [
+        [-2.0, "#D7191C", 70, "Extremely dry"],
+        [-1.5, "#FDAE61", 70, "Very dry"],
+        [-1.0, "#FFFFBF", 70, "Moderately dry"],
+        [0.0, "#FFFFFF", 70, "Normal"],
+        [1.0, "#F599F6", 70, "Moderately wet"],
+        [1.5, "#B467DD", 70, "Very wet"],
+        [2.0, "#450199", 70, "Extremely wet"]
+      ]
+    }
+  },
+  "long_name": "Standardized Precipitation Index - 3"}
