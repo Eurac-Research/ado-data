@@ -41,27 +41,27 @@
         [
           0,
           "Extremely low vitaliy",
-          "rgba(132,76,20,0.7)"
+          "rgba(132,76,20,1)"
         ],
         [
           25,
           "Low vitality",
-          "rgba(253,174,97,0.7)"
+          "rgba(253,174,97,1)"
         ],
         [
           50,
           "Average vitality",
-          "rgba(255,255,191,0.7)"
+          "rgba(255,255,191,1)"
         ],
         [
           75,
           "High vitality",
-          "rgba(171,217,126,0.7)"
+          "rgba(171,217,126,1)"
         ],
         [
           100,
           "Extremely high vitality",
-          "rgba(51,160,44,0.7)"
+          "rgba(51,160,44,1)"
         ]
       ]
     }
