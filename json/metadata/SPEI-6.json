@@ -7,19 +7,83 @@
     }
   },
   "colormap": {
+    "id": "data",
     "type": "fill",
     "paint": {
-      "property": "value",
-      "interpolation": "linear",
+      "fill-color": {
+        "property": "value",
+        "stops": [
+          [
+            -2,
+            "rgba(215,25,28,0.7)"
+          ],
+          [
+            -1.5,
+            "rgba(253,174,97,0.7)"
+          ],
+          [
+            -1,
+            "rgba(255,255,191,0.7)"
+          ],
+          [
+            0,
+            "rgba(255,255,255,0)"
+          ],
+          [
+            1,
+            "rgba(245,153,246,0.7)"
+          ],
+          [
+            1.5,
+            "rgba(180,103,221,0.7)"
+          ],
+          [
+            2,
+            "rgba(69,0,153,0.7)"
+          ]
+        ]
+      }
+    },
+    "legend": {
       "stops": [
-        [-2.0, "#D7191C", 70, "Extremely dry"],
-        [-1.5, "#FDAE61", 70, "Very dry"],
-        [-1.0, "#FFFFBF", 70, "Moderately dry"],
-        [0.0, "#FFFFFF", 70, "Normal"],
-        [1.0, "#F599F6", 70, "Moderately wet"],
-        [1.5, "#B467DD", 70, "Very wet"],
-        [2.0, "#450199", 70, "Extremely wet"]
+        [
+          -2,
+          "Extremely dry",
+          "rgba(215,25,28,0.7)"
+        ],
+        [
+          -1.5,
+          "Very dry",
+          "rgba(253,174,97,0.7)"
+        ],
+        [
+          -1,
+          "Moderately dry",
+          "rgba(255,255,191,0.7)"
+        ],
+        [
+          0,
+          "Normal",
+          "rgba(255,255,255,0)"
+        ],
+        [
+          1,
+          "Moderately wet",
+          "rgba(245,153,246,0.7)"
+        ],
+        [
+          1.5,
+          "Very wet",
+          "rgba(180,103,221,0.7)"
+        ],
+        [
+          2,
+          "Extremely wet",
+          "rgba(69,0,153,0.7)"
+        ]
       ]
     }
   },
-  "long_name": "Standardized Precipitation and Evapotranspiration Index - 6"}
+  "short_name": "SPEI-6",
+  "long_name": "Standardized Precipitation and Evapotranspiration Index - 6"
+}
