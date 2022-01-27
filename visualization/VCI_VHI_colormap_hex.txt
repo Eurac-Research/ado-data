@@ -1,7 +1,7 @@
 # QGIS Generated Color Map Export File
 INTERPOLATION:INTERPOLATED
-0,#844C14,70,"extremely low vitality"
-25,#FDAE61,70,"low vitality"
-50,#FFFF5B,70,"average vitality"
-75,#ABD97E,70,"high vitality"
-100,#34A02C,70,"extremely high vitality"
+0,"rgba(132,76,20,0.7)","extremely low vitality"
+25,"rgba(253,174,97,0.7)","low vitality"
+50,"rgba(255,255,191,0.7)","average vitality"
+75,"rgba(171,217,126,0.7)","high vitality"
+100,"rgba(51,160,44,0.7)","extremely high vitality"
