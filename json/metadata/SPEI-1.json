@@ -1,12 +1,12 @@
 {
     "short_name": "SPEI-1",
     "long_name": "Standardaized Precipitation and Evapotranspiration Index - 1",
-    "abstract": "The Standardized Precipitation Index (SPI) is the most commonly used indicator worldwide for detecting and characterizing meteorological droughts. The SPI indicator, which was developed by McKee et al. (1993), and described in detail by Edwards and McKee (1997), measures precipitation anomalies at a given location, based on a comparison of observed total precipitation amounts for an accumulation period of interest (e.g. 1, 3, 12, 48 months), with the long-term historic rainfall record for that period. For any given region, increasingly severe rainfall deficits (i.e., meteorological droughts) are indicated as SPI decreases below ‒1.0.  A new variation of SPI - the Standardized Precipitation and Evapotranspiration Index (SPEI) - has been developed (Vicente-Serrano et al., 2010), which includes precipitation and temperature, in order to identify increases in drought severity linked with higher water demand by evapotranspiration.",
+    "abstract": "The Standardized Precipitation Index (SPI) is the most commonly used indicator worldwide for detecting and characterizing meteorological droughts. The SPI indicator, which was developed by McKee et al. (1993), and described in detail by Edwards and McKee (1997), measures precipitation anomalies at a given location, based on a comparison of observed total precipitation amounts for an accumulation period of interest (e.g. 1, 3, 12, 48 months), with the long-term historic rainfall record for that period. For any given region, increasingly severe rainfall deficits (i.e., meteorological droughts) are indicated as SPI decreases below \u20121.0.  A new variation of SPI - the Standardized Precipitation and Evapotranspiration Index (SPEI) - has been developed (Vicente-Serrano et al., 2010), which includes precipitation and temperature, in order to identify increases in drought severity linked with higher water demand by evapotranspiration.",
     "timerange": {
         "type": "date",
         "properties": {
-            "firstDate": "2018-07-26",
-            "lastDate": "2018-08-24"
+            "firstDate": "2021-03-24",
+            "lastDate": "2022-03-23"
         }
     },
     "colormap": {

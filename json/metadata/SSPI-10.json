@@ -1,12 +1,12 @@
 {
-    "short_name": "DSC",
-    "long_name": "River Discharge Anomalies",
-    "abstract": " Discharge Anomalies (DSC) are an indicator for hydrological drought. They are calcluated based on time-series of measured river discharge. The anomalies represent the daily deviation of the long term average.",
+    "short_name": "SSPI-10",
+    "long_name": "Standardized Snowpack Index",
+    "abstract": "The SSPI provides information of the relative volume of the snowpack in the catchment on a ten-daily basis compared to the period of reference.",
     "timerange": {
         "type": "date",
         "properties": {
-            "firstDate": "2018-07-26",
-            "lastDate": "2018-08-24"
+            "firstDate": "2021-03-24",
+            "lastDate": "2022-03-23"
         }
     },
     "colormap": {
@@ -18,31 +18,31 @@
                 "stops": [
                     [
                         -2.0,
-                        "rgba(215,25,28,0.7)"
+                        "rgba(164,113,88,255,0.7)"
                     ],
                     [
                         -1.5,
-                        "rgba(253,174,97,0.7)"
+                        "rgba(147,114,99,0.7)"
                     ],
                     [
                         -1.0,
-                        "rgba(255,255,191,0.7)"
+                        "rgba(131,115,111,0.7)"
                     ],
                     [
                         0.0,
-                        "rgba(255,255,255,0.7)"
+                        "rgba(97,116,134,0.7)"
                     ],
                     [
                         1.0,
-                        "rgba(245,153,246,0.7)"
+                        "rgba(64,118,157,0.7)"
                     ],
                     [
                         1.5,
-                        "rgba(180,103,221,0.7)"
+                        "rgba(47,119,169,0.7)"
                     ],
                     [
                         2.0,
-                        "rgba(69,0,153,0.7)"
+                        "rgba(31,120,180,0.7)"
                     ]
                 ]
             }
@@ -51,38 +51,38 @@
             "stops": [
                 [
                     -2.0,
-                    "Extremely low flow",
-                    "rgba(215,25,28,0.7)"
+                    "Highly less than normal",
+                    "rgba(164,113,88,255,0.7)"
                 ],
                 [
                     -1.5,
-                    "Very low flow",
-                    "rgba(253,174,97,0.7)"
+                    "Much less than normal",
+                    "rgba(147,114,99,0.7)"
                 ],
                 [
                     -1.0,
-                    "Moderately low flow",
-                    "rgba(255,255,191,0.7)"
+                    "Less than normal",
+                    "rgba(131,115,111,0.7)"
                 ],
                 [
                     0.0,
-                    "Normal flow",
-                    "rgba(255,255,255,0.7)"
+                    "Near normal conditions",
+                    "rgba(97,116,134,0.7)"
                 ],
                 [
                     1.0,
-                    "Moderately high flow",
-                    "rgba(245,153,246,0.7)"
+                    "More than normal",
+                    "rgba(64,118,157,0.7)"
                 ],
                 [
                     1.5,
-                    "Very high flow",
-                    "rgba(180,103,221,0.7)"
+                    "Much more than normal",
+                    "rgba(47,119,169,0.7)"
                 ],
                 [
                     2.0,
-                    "Extremely high flow",
-                    "rgba(69,0,153,0.7)"
+                    "Highly more than normal",
+                    "rgba(31,120,180,0.7)"
                 ]
             ]
         }
