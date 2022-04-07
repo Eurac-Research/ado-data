@@ -5,8 +5,8 @@
     "timerange": {
         "type": "date",
         "properties": {
-            "firstDate": "2018-07-26",
-            "lastDate": "2018-08-24"
+            "firstDate": "2020-07-03",
+            "lastDate": "2020-08-01"
         }
     },
     "colormap": {

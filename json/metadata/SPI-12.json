@@ -4,7 +4,7 @@
     "timerange": {
         "type": "date",
         "properties": {
-            "firstDate": "2021-03-24",
+            "firstDate": "2022-02-22",
             "lastDate": "2022-03-23"
         }
     },
