@@ -45,7 +45,8 @@
                         "rgba(31,120,180,0.7)"
                     ]
                 ]
-            }
+            },
+            "default": "transparent"
         },
         "legend": {
             "stops": [
