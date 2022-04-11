@@ -1,12 +1,11 @@
 {
-    "short_name": "SMA",
-    "long_name": "Soil Moisture Anomalies",
-    "abstract": "The Soil Moisture Anomaly (SMA) index is used for determining the start and duration of agricultural drought conditions, which arise when soil moisture availability to plants drops to such a level that it adversely affects crop yield, and hence, agricultural production. The SMA index is computed based on soil moisture anomalies from the ERA5 reanalysis (Hersbach et al., 2022)",
+    "short_name": "SPI-12",
+    "long_name": "Standardized Precipitation Index - 12",
     "timerange": {
         "type": "date",
         "properties": {
-            "firstDate": "2022-02-22",
-            "lastDate": "2022-03-23"
+            "firstDate": "2020-02-22",
+            "lastDate": "2020-03-23"
         }
     },
     "colormap": {
