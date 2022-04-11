@@ -1,0 +1,72 @@
+{
+    "short_name": "VHI",
+    "long_name": "Vegetation Health Index",
+    "abstract": "The Vegetation Health Index (VHI) illustrates the severity of drought based on the vegetation health and the influence of temperature on plant conditions. The VHI is a composite index, it combines both the Vegetation Condition Index (VCI) and the Temperature Condition Index (TCI). The TCI is calculated using a similar equation to the VCI, but relates the current temperature to the long-term maximum and minimum. A decrease in the VHI would, for example, indicate relatively poor vegetation conditions and warmer temperatures, signifying stressed vegetation conditions, and over a longer period would be indicative of drought.",
+    "timerange": {
+        "type": "date",
+        "properties": {
+            "firstDate": "2020-07-03",
+            "lastDate": "2020-08-01"
+        }
+    },
+    "colormap": {
+        "id": "data",
+        "type": "fill",
+        "paint": {
+            "fill-color": {
+                "property": "value",
+                "stops": [
+                    [
+                        0,
+                        "rgba(132,76,20,0.7)"
+                    ],
+                    [
+                        25,
+                        "rgba(253,174,97,0.7)"
+                    ],
+                    [
+                        50,
+                        "rgba(255,255,191,0.7)"
+                    ],
+                    [
+                        75,
+                        "rgba(171,217,126,0.7)"
+                    ],
+                    [
+                        100,
+                        "rgba(51,160,44,0.7)"
+                    ]
+                ]
+            }
+        },
+        "legend": {
+            "stops": [
+                [
+                    0,
+                    "extremely low vitality",
+                    "rgba(132,76,20,0.7)"
+                ],
+                [
+                    25,
+                    "low vitality",
+                    "rgba(253,174,97,0.7)"
+                ],
+                [
+                    50,
+                    "average vitality",
+                    "rgba(255,255,191,0.7)"
+                ],
+                [
+                    75,
+                    "high vitality",
+                    "rgba(171,217,126,0.7)"
+                ],
+                [
+                    100,
+                    "extremely high vitality",
+                    "rgba(51,160,44,0.7)"
+                ]
+            ]
+        }
+    }
+}

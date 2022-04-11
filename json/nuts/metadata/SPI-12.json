@@ -1,0 +1,89 @@
+{
+    "short_name": "SPI-12",
+    "long_name": "Standardized Precipitation Index - 12",
+    "timerange": {
+        "type": "date",
+        "properties": {
+            "firstDate": "2022-02-22",
+            "lastDate": "2022-03-23"
+        }
+    },
+    "colormap": {
+        "id": "data",
+        "type": "fill",
+        "paint": {
+            "fill-color": {
+                "property": "value",
+                "stops": [
+                    [
+                        -2.0,
+                        "rgba(215,25,28,0.7)"
+                    ],
+                    [
+                        -1.5,
+                        "rgba(253,174,97,0.7)"
+                    ],
+                    [
+                        -1.0,
+                        "rgba(255,255,191,0.7)"
+                    ],
+                    [
+                        0.0,
+                        "rgba(255,255,255,0.7)"
+                    ],
+                    [
+                        1.0,
+                        "rgba(245,153,246,0.7)"
+                    ],
+                    [
+                        1.5,
+                        "rgba(180,103,221,0.7)"
+                    ],
+                    [
+                        2.0,
+                        "rgba(69,0,153,0.7)"
+                    ]
+                ]
+            }
+        },
+        "legend": {
+            "stops": [
+                [
+                    -2.0,
+                    "Extremely dry",
+                    "rgba(215,25,28,0.7)"
+                ],
+                [
+                    -1.5,
+                    "Very dry",
+                    "rgba(253,174,97,0.7)"
+                ],
+                [
+                    -1.0,
+                    "Moderately dry",
+                    "rgba(255,255,191,0.7)"
+                ],
+                [
+                    0.0,
+                    "Normal",
+                    "rgba(255,255,255,0.7)"
+                ],
+                [
+                    1.0,
+                    "Moderately wet",
+                    "rgba(245,153,246,0.7)"
+                ],
+                [
+                    1.5,
+                    "Very wet",
+                    "rgba(180,103,221,0.7)"
+                ],
+                [
+                    2.0,
+                    "Extremely wet",
+                    "rgba(69,0,153,0.7)"
+                ]
+            ]
+        }
+    }
+}

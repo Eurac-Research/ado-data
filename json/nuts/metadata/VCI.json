@@ -1,0 +1,72 @@
+{
+    "short_name": "VCI",
+    "long_name": "Vegetation Condition Index",
+    "abstract": "The Vegetation Condition Index (VCI) compares the current NDVI to the range of values observed in the same period in previous years. The VCI is expressed in % and gives an idea where the observed value is situated between the extreme values (minimum and maximum) in the previous years. Lower and higher values indicate bad and good vegetation state conditions, respectively.",
+    "timerange": {
+        "type": "date",
+        "properties": {
+            "firstDate": "2020-07-03",
+            "lastDate": "2020-08-01"
+        }
+    },
+    "colormap": {
+        "id": "data",
+        "type": "fill",
+        "paint": {
+            "fill-color": {
+                "property": "value",
+                "stops": [
+                    [
+                        0,
+                        "rgba(132,76,20,0.7)"
+                    ],
+                    [
+                        25,
+                        "rgba(253,174,97,0.7)"
+                    ],
+                    [
+                        50,
+                        "rgba(255,255,191,0.7)"
+                    ],
+                    [
+                        75,
+                        "rgba(171,217,126,0.7)"
+                    ],
+                    [
+                        100,
+                        "rgba(51,160,44,0.7)"
+                    ]
+                ]
+            }
+        },
+        "legend": {
+            "stops": [
+                [
+                    0,
+                    "extremely low vitality",
+                    "rgba(132,76,20,0.7)"
+                ],
+                [
+                    25,
+                    "low vitality",
+                    "rgba(253,174,97,0.7)"
+                ],
+                [
+                    50,
+                    "average vitality",
+                    "rgba(255,255,191,0.7)"
+                ],
+                [
+                    75,
+                    "high vitality",
+                    "rgba(171,217,126,0.7)"
+                ],
+                [
+                    100,
+                    "extremely high vitality",
+                    "rgba(51,160,44,0.7)"
+                ]
+            ]
+        }
+    }
+}
