@@ -390,11 +390,12 @@ def merge_time_series(points, index_list, aggunit='hydro', update=False):
         if update:
             # read existing time series
             ts_out_old = pd.read_json(ts_outpath)
+            ts_out_old['date'] = ts_out_old['date'].astype(str)
             N_new_rows = pd.to_datetime(ts_out.date).max() - pd.to_datetime(ts_out_old.date).max()
             ts_out = pd.concat([ts_out_old, ts_out.iloc[-N_new_rows.days:, :]], axis=0, ignore_index=True)
             # ts_out = ts_out[ts_out.index.drop_duplicates()]
             # drop rows at the beginning of the file
             ts_out = ts_out.iloc[N_new_rows.days:, :]
-            ts_out['date'] = ts_out['date'].astype(str)
+            # ts_out['date'] = ts_out['date'].date.astype(str)
 
         ts_out.to_json(ts_outpath, orient='records', double_precision=3)
