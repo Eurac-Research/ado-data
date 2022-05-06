@@ -3,8 +3,16 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to production on vercel
-      uses: fjogeleit/http-request-action@master
+    - name: Pushes to ADO repository (website)
+      id: push_directory
+      uses: Eurac-Research/ADO@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
-        url: ${{secrets.TRIGGERVERCELBUILD}}
-        method: 'POST'
+        source-directory: markdown/
+        destination-github-username: 'tiacop'
+        destination-repository-name: 'ADO'
+        user-email: thomas.iacopino@eurac.edu
+        commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+        target-directory: public/
+        target-branch: main
