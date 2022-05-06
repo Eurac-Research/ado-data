@@ -15,7 +15,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source_folder: 'markdown'
-        destination_repo: 'Eurac-Research/ADO@main'
+        destination_repo: 'Eurac-Research/ADO/tree/main'
         destination_folder: 'public/markdown'
         user_email: 'thomas.iacopino@eurac.edu'
         user_name: 'tiacopino'
