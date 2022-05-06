@@ -19,4 +19,4 @@ jobs:
         destination_folder: 'public/markdown'
         user_email: 'thomas.iacopino@eurac.edu'
         user_name: 'tiacopino'
-        commit_msg: '[GHA] Update the test files.'
+        commit_msg: '[GHA] Update the files.'
