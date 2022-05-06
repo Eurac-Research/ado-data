@@ -5,14 +5,14 @@ jobs:
     steps:
     - name: Pushes to ADO repository (website)
       id: push_directory
-      uses: Eurac-Research/ADO@main
+      uses: Eurac-Research/ado-data@main
       env:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       with:
         source-directory: markdown/
-        destination-github-username: 'tiacop'
+        destination-github-username: 'Eurac-Research'
         destination-repository-name: 'ADO'
         user-email: thomas.iacopino@eurac.edu
         commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-        target-directory: public/
-        target-branch: main
+        target-directory: public/markdown/
+        target-branch: dev
