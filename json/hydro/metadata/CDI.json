@@ -1,0 +1,81 @@
+{
+    "short_name": "CDI",
+    "long_name": "Combined Drought Index",
+    "abstract": "The Combined Drought Index (CDI) is used to identify areas affected by agricultural drought. It was developed by Sepulcre-Canto et al. (2012) and is based on the SPI, SMA, and VHI indices. Areas are classified according to three primary drought classes: (1) 'Watch', indicating that precipitation is less than normal; (2) 'Warning', indicating that soil moisture is in deficit; and (3) 'Alert', indicating that vegetation shows signs of stress. Two additional classes - 'Partia recovery' and 'Recovery' - identify stages of the vegetation recovery process.",
+    "timerange": {
+        "type": "date",
+        "properties": {
+            "firstDate": "2020-02-22",
+            "lastDate": "2020-03-23"
+        }
+    },
+    "colormap": {
+        "id": "data",
+        "type": "fill",
+        "paint": {
+            "fill-color": {
+                "property": "value",
+                "stops": [
+                    [
+                        0,
+                        "rgba(255,255,255,0.7)"
+                    ],
+                    [
+                        1,
+                        "rgba(244,241,17,0.7)"
+                    ],
+                    [
+                        2,
+                        "rgba(253,117,0,0.7)"
+                    ],
+                    [
+                        3,
+                        "rgba(255,14,14,0.7)"
+                    ],
+                    [
+                        4,
+                        "rgba(178,55,2,0.7)"
+                    ],
+                    [
+                        5,
+                        "rgba(149,236,149,0.7)"
+                    ]
+                ]
+            }
+        },
+        "legend": {
+            "stops": [
+                [
+                    0,
+                    "Normal",
+                    "rgba(255,255,255,0.7)"
+                ],
+                [
+                    1,
+                    "Watch",
+                    "rgba(244,241,17,0.7)"
+                ],
+                [
+                    2,
+                    "Warning",
+                    "rgba(253,117,0,0.7)"
+                ],
+                [
+                    3,
+                    "Alert",
+                    "rgba(255,14,14,0.7)"
+                ],
+                [
+                    4,
+                    "Partial recovery",
+                    "rgba(178,55,2,0.7)"
+                ],
+                [
+                    5,
+                    "Full recovery",
+                    "rgba(149,236,149,0.7)"
+                ]
+            ]
+        }
+    }
+}

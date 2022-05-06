@@ -1,0 +1,91 @@
+{
+    "short_name": "SSPI-10",
+    "long_name": "Standardized Snowpack Index",
+    "abstract": "The SSPI provides information of the relative volume of the snowpack in the catchment on a ten-daily basis compared to the period of reference.",
+    "timerange": {
+        "type": "date",
+        "properties": {
+            "firstDate": "2022-02-22",
+            "lastDate": "2022-03-23"
+        }
+    },
+    "colormap": {
+        "id": "data",
+        "type": "fill",
+        "paint": {
+            "fill-color": {
+                "property": "value",
+                "stops": [
+                    [
+                        -2.0,
+                        "rgba(236,11,0,0.7)"
+                    ],
+                    [
+                        -1.5,
+                        "rgba(237,69,61,0.7)"
+                    ],
+                    [
+                        -1.0,
+                        "rgba(238,127,122,0.7)"
+                    ],
+                    [
+                        0.0,
+                        "rgba(239,239,239,0.7)"
+                    ],
+                    [
+                        1.0,
+                        "rgba(213,233,237,0.7)"
+                    ],
+                    [
+                        1.5,
+                        "rgba(200,229,236,0.7)"
+                    ],
+                    [
+                        2.0,
+                        "rgba(187,226,234,0.7)"
+                    ]
+                ]
+            },
+            "default": "transparent"
+        },
+        "legend": {
+            "stops": [
+                [
+                    -2.0,
+                    "Highly less than normal",
+                    "rgba(236,11,0,0.7)"
+                ],
+                [
+                    -1.5,
+                    "Much less than normal",
+                    "rgba(237,69,61,0.7)"
+                ],
+                [
+                    -1.0,
+                    "Less than normal",
+                    "rgba(238,127,122,0.7)"
+                ],
+                [
+                    0.0,
+                    "Near normal conditions",
+                    "rgba(239,239,239,0.7)"
+                ],
+                [
+                    1.0,
+                    "More than normal",
+                    "rgba(213,233,237,0.7)"
+                ],
+                [
+                    1.5,
+                    "Much more than normal",
+                    "rgba(200,229,236,0.7)"
+                ],
+                [
+                    2.0,
+                    "Highly more than normal",
+                    "rgba(187,226,234,0.7)"
+                ]
+            ]
+        }
+    }
+}

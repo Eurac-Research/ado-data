@@ -1,0 +1,90 @@
+{
+    "short_name": "SDI",
+    "long_name": "Streamflow Drought Index",
+    "abstract": "ses monthly streamflow values and the methods of normalization associated with SPI for developing a drought index based upon streamflow data. With an output similar to that of SPI, both wet and dry periods can be investigated, as well as the severity of these occurrences.",
+    "timerange": {
+        "type": "date",
+        "properties": {
+            "firstDate": "2020-02-22",
+            "lastDate": "2020-03-23"
+        }
+    },
+    "colormap": {
+        "id": "data",
+        "type": "fill",
+        "paint": {
+            "fill-color": {
+                "property": "value",
+                "stops": [
+                    [
+                        -2.0,
+                        "rgba(215,25,28,0.7)"
+                    ],
+                    [
+                        -1.5,
+                        "rgba(253,174,97,0.7)"
+                    ],
+                    [
+                        -1.0,
+                        "rgba(255,255,191,0.7)"
+                    ],
+                    [
+                        0.0,
+                        "rgba(255,255,255,0.7)"
+                    ],
+                    [
+                        1.0,
+                        "rgba(245,153,246,0.7)"
+                    ],
+                    [
+                        1.5,
+                        "rgba(180,103,221,0.7)"
+                    ],
+                    [
+                        2.0,
+                        "rgba(69,0,153,0.7)"
+                    ]
+                ]
+            }
+        },
+        "legend": {
+            "stops": [
+                [
+                    -2.0,
+                    "Extremely low flow",
+                    "rgba(215,25,28,0.7)"
+                ],
+                [
+                    -1.5,
+                    "Very low flow",
+                    "rgba(253,174,97,0.7)"
+                ],
+                [
+                    -1.0,
+                    "Moderately low flow",
+                    "rgba(255,255,191,0.7)"
+                ],
+                [
+                    0.0,
+                    "Normal flow",
+                    "rgba(255,255,255,0.7)"
+                ],
+                [
+                    1.0,
+                    "Moderately high flow",
+                    "rgba(245,153,246,0.7)"
+                ],
+                [
+                    1.5,
+                    "Very high flow",
+                    "rgba(180,103,221,0.7)"
+                ],
+                [
+                    2.0,
+                    "Extremely high flow",
+                    "rgba(69,0,153,0.7)"
+                ]
+            ]
+        }
+    }
+}
