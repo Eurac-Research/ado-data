@@ -1,6 +1,6 @@
 on: [push]
 jobs:
-  deployment:
+  build:
     runs-on: ubuntu-latest
     steps:
     - name: Pushes to ADO repository (website)
