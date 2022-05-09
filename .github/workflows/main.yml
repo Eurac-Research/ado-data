@@ -16,7 +16,7 @@ jobs:
       with:
         source_folder: 'markdown'
         destination_repo: 'Eurac-Research/ADO'
-        destination_folder: 'public/markdown'
+        destination_folder: '_posts/markdown'
         destination_branch: 'main'
         user_email: 'thomas.iacopino@eurac.edu'
         user_name: 'tiacopino'
