@@ -1,5 +1,6 @@
 ---
 title: About the Project
+slug: about-the-project
 ---
 
 
