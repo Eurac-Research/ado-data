@@ -112,6 +112,7 @@ def compute_stats(drange, shapes, points=None, index='SPI3', aggunit='hydro', up
     if index == 'SDI':
         for ifeat in tmp_shapes.iterfeatures():
             # get dsc ts
+            print(ifeat)
             dsc_ts = get_dsc(ifeat['properties']['id_station'])
             # TODO: remove this work around to achieve time-series of equal length before operationalization
             dsc_ts = dsc_ts.fillna(method='bfill')
@@ -188,9 +189,13 @@ def compute_stats(drange, shapes, points=None, index='SPI3', aggunit='hydro', up
         # write time series
         with open(ts_outpath, 'w') as outfile:
             json.dump(ts_list, outfile)
-
+        
+        #print("drange: ", drange[-1])
+        #print(ifeat['properties'][index])
+       
         if update:
-            for ikey in ifeat['properties'][index].keys():
+            for ikey in list(ifeat['properties'][index].keys()):
+                print(ikey)
                 if dt.datetime.strptime(ikey, '%Y-%m-%d') < (drange[-1] - dt.timedelta(days=30)):
                     del ifeat['properties'][index][ikey]
         else:
@@ -245,7 +250,7 @@ def get_basepath(index):
     if index[0:3] == 'SPI' or index[0:3] == 'SPE':
         basepath = '/mnt/CEPH_PROJECTS/ADO/ARSO/ERA5_QM_NEW/' + index + '/'
     elif index[0:3] == 'VHI':
-        basepath = '/mnt/CEPH_PROJECTS/ADO/VHI/03_results/eusalp_2001_2020/laea_vegmasked/vhi/'
+        basepath =  '/mnt/CEPH_PRODUCTS/ADO/vhi/'# '/mnt/CEPH_PROJECTS/ADO/VHI/03_results/eusalp_2001_2020/laea_vegmasked/vhi/'
     elif index[0:3] == 'VCI':
         basepath = '/mnt/CEPH_PROJECTS/ADO/VHI/03_results/eusalp_2001_2020/laea_vegmasked/vci/'
     elif index[0:3] == 'SMA':

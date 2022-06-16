@@ -13,6 +13,7 @@ def main():
                   'SPEI-6', 'SPEI-12',
                   'SSPI-10',
                   'SMA', 'VHI', 'VCI', 'CDI']
+    index_liust = ['VHI']
 
     # import shapefile
     nuts3 = gpd.read_file('/mnt/CEPH_PROJECTS/ADO/GIS/ERTS89_LAEA/alpinespace_eusalp_NUTS3_simple.shp',
@@ -23,7 +24,7 @@ def main():
                                  '%Y-%m-%d')  # TODO: modify to use actual date of the day the script is run
     drange = pd.date_range(today - dt.timedelta(days=364), today, freq='1D')
 
-    today = dt.datetime.strptime('2020-08-01',
+    today = dt.datetime.strptime('2022-06-02',
                                  '%Y-%m-%d')
     drange2 = pd.date_range(today - dt.timedelta(days=364), today, freq='1D')
 
