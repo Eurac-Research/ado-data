@@ -7,7 +7,7 @@ The ADO project is generating a wide array of datasets for monitoring of drought
 
 An overview of the code that makes up the ADO Platform can be found [here on GitLab](https://gitlab.inf.unibz.it/ado/operational_pipelines "GitLab ADO").
 
-The data used on this webpage is [CC licensed](https://github.com/Eurac-Research/ado-data/blob/main/LICENSE) and can be found on this [Github Repository](https://github.com/Eurac-Research/ado-data)
+The data used on this webpage is [CC licensed](https://github.com/Eurac-Research/ado-data/blob/main/LICENSE) and can be found on [this Github Repository](https://github.com/Eurac-Research/ado-data)
 
 ## Drought Indices
 
@@ -30,7 +30,9 @@ The data used on this webpage is [CC licensed](https://github.com/Eurac-Research
 - [Vegetation Condition Index (VCI)](https://doi.org/10.48784/16367c6a-534a-11ec-b0a3-02000a08f41d "VCI")
 
 ## Hydrogical Data
+
 ### Access to Hydrological Database
+
 The database contains observational daily discharge and water level data deriving from the first measurement (which differs for each region) to the present, with more than 1400 stations. These datasets were collected from multiple data providers within the ADO study region, covering the countries Austria, France, Germany, Italy, Slovenia, and Switzerland. The spanned period is 1869-2021. For some regions in Italy there are records to 2022. The missing data were added to have a continuous time series.
 
 Access the [Hydrological Database directly via the Environmental Data Platform](https://edp-portal.eurac.edu/cdb_doc/ado/ado/ "Hydrological Database on EDP")
