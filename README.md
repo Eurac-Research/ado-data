@@ -1,14 +1,29 @@
 # portal_data
 
-repo for data to be visualized on the public portal https://ado.eurac.edu (frontend repo https://github.com/Eurac-Research/ADO)
+Repository holding the data that is to be visualized on the public portal https://ado.eurac.edu (frontend repo https://github.com/Eurac-Research/ADO)
 
 ## Contents
 
-- ./json:
-  - one geojson file per index with values for each NUTS3 region for the past 30 days
-  - ./json/timeseries
-    - one json file for each NUTS3 region containing the time-series of all indices for the time period
-- ./visualization
+- ./factsheets/
+  - holding the factsheets (.pdfs) describing the drought indices.
+- ./html/ 
+  - hydrological station reports (.htmls)
+- ./json/
+  - hydro/
+    - metadata/: metadata for each index (abstract, colorscheme, ...)
+    - timeseries/: timeseries data dating back to start of each index
+    - hydrological basin maps with the last 6 months
+  - impacts/
+    - static impact maps (.json)
+  - nuts/
+    - metadata/: metadata for each index (abstract, colorscheme, ...)
+    - timeseries/: timeseries data dating back to start of each index
+    - nuts2/3 maps with the last 6 months
+  - vulnerabilities/
+    - static vulnerability maps (.json)
+- ./markdown/navigation-items/
+  - description about the data, about the project, imprint, ...
+- ./visualization/
   - a text file for each index (or group of indices) containing visualization parameters
 
 ## License
