@@ -19,7 +19,7 @@ earth.observation@eurac.edu
 
 # License
 
-The data presented on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-Research/ado-data/blob/main/LICENSE.md), if not explicitly stated otherwise, and can be found on this [Github Repository](https://github.com/Eurac-Research/ado-data)..
+The data presented on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-Research/ado-data/blob/main/LICENSE.md), if not explicitly stated otherwise, and can be found on this [Github Repository](https://github.com/Eurac-Research/ado-data).
 
 # Disclaimer and Liability
 
