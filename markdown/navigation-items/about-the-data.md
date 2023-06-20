@@ -3,13 +3,28 @@ title: About the Data
 slug: about-the-data
 ---
 
-The ADO project is generating a wide array of datasets for monitoring of drought which are all made available under an open data license. All datasets are shared through our [Environmentdal Data Platform](https://edp-portal.eurac.edu/home "EDP-Portal"), which offers a variety of interfaces for accessing the data, including hosted [jupyter environments](https://edp-portal.eurac.edu/jupyter/ "jupyter"), openEO API through the [web editor](https://editor.openeo.org/?server=https://openeo.eurac.edu "openEO web editor") or directly using the python and R client libraries and OGC standards like the WFS and [Web Coverage Service (WCS)](http://saocompute.eurac.edu/rasdaman/ows#/services "rasdaman").
+The ADO project is generating a wide array of datasets for monitoring of drought which are all made available under an open data license. All datasets are shared through our [Environmentdal Data Platform](https://edp-portal.eurac.edu/home "EDP-Portal"), which offers a variety of interfaces for accessing the data, including hosted [jupyter environments](https://edp-portal.eurac.edu/jupyter/ "jupyter"), openEO API through the [web editor](https://editor.openeo.org/?server=https://openeo.eurac.edu "openEO web editor") or directly using the python and R client libraries and OGC standards like the WFS and [Web Coverage Service (WCS)](http://saocompute.eurac.edu/rasdaman/ows#/services "rasdaman"). **To create a user account on the EDP please contact [SupportCSS@eurac.edu​](SupportCSS@eurac.edu)​.**
 
 An overview of the code that makes up the ADO Platform can be found [here on GitLab](https://gitlab.inf.unibz.it/ado/operational_pipelines "GitLab ADO").
 
-The data used on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-Research/ado-data/blob/main/LICENSE.md) and can be found on [this Github Repository](https://github.com/Eurac-Research/ado-data)
+The data shown on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-Research/ado-data/blob/main/LICENSE.md) and can be found on [this Github Repository](https://github.com/Eurac-Research/ado-data)
 
 ## Drought Indices
+### Citation
+If you use any ADO drought indices from the [ADO Webportal](https://ado.eurac.edu/) or its [Github data repository](https://github.com/Eurac-Research/ado-data), the [Environmental Data Platform](https://edp-portal.eurac.edu/home) (raw data access) please cite the data like shown here:
+
+- Standardised Precipitation Index (SPI), doi: https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d
+- Standardised Precipitation-Evapotranspiration Index (SPEI), doi: https://doi.org/10.48784/166E51EE-534A-11EC-9143-02000A08F41D
+- Standardised Snow Pack Index (SSPI), doi: https://doi.org/10.48784/0ca021a6-7942-11ec-a314-02000a08f41d
+- Soil Moisture Anomalies (SMA), doi: https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5
+- Vegetation Health Index (VHI), doi: https://doi.org/10.48784/161b3496-534a-11ec-b78a-02000a08f41d
+- Vegetation Condition Index (VCI), doi: https://doi.org/10.48784/161b3496-534a-11ec-b78a-02000a08f41d
+
+If you want to relate to the methodology, please cite the following data papers:
+
+- Standardised Precipitation Index (SPI)
+- Soil Moisture Anomalies (SMA)
+- Vegetation Health Index (VHI)
 
 ### Fact Sheets
 
@@ -29,7 +44,12 @@ The data used on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-R
 - [Vegetation Health Index (VHI)](https://doi.org/10.48784/161b3496-534a-11ec-b78a-02000a08f41d "VHI")
 - [Vegetation Condition Index (VCI)](https://doi.org/10.48784/16367c6a-534a-11ec-b0a3-02000a08f41d "VCI")
 
+
+
 ## Hydrogical Data
+
+### Citation
+- TBD
 
 ### Access to Hydrological Database
 
@@ -38,6 +58,12 @@ The database contains observational daily discharge and water level data derivin
 Access the [Hydrological Database directly via the Environmental Data Platform](https://edp-portal.eurac.edu/cdb_doc/ado/ado/ "Hydrological Database on EDP")
 
 ## Drought Impacts
+
+### Citation
+
+- Reported Impacts, TBD
+- Impact Probabilities, TBD
+- Vulnerabilities, TBD
 
 ### Reported impacts
 
