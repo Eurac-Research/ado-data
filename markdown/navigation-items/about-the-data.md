@@ -35,7 +35,7 @@ If you want to relate to the methodology, please cite the following data papers:
 - [Vegetation Health Index (VHI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/VHI_4.pdf "VHI/VCI - Fact Sheet")
 - [Vegetation Condition Index (VCI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/VHI_4.pdf "VHI/VCI - Fact Sheet")
 
-### Metadata, Citation and Raw Data Access on the Environmental Data Platform
+### Metadata and Raw Data Access on the Environmental Data Platform
 
 - [Standardised Precipitation Index (SPI)](https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d "SPI")
 - [Standardised Precipitation-Evapotranspiration Index (SPEI)](https://doi.org/10.48784/166E51EE-534A-11EC-9143-02000A08F41D "SPEI")
