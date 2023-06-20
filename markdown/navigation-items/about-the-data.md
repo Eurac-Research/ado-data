@@ -13,22 +13,21 @@ The data shown on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-
 ### Citation
 If you use any ADO drought indices from the [ADO Webportal](https://ado.eurac.edu/) or its [Github data repository](https://github.com/Eurac-Research/ado-data), the [Environmental Data Platform](https://edp-portal.eurac.edu/home) (raw data access) please cite the data like shown here:
 
-- Standardised Precipitation Index (SPI)
+**Standardised Precipitation Index (SPI)**
   - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation Index - ERA5_QM SPI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d
-- Standardised Precipitation-Evapotranspiration Index (SPEI)
+
+**Standardised Precipitation-Evapotranspiration Index (SPEI)**
   - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation-Evapotranspiration Index - ERA5_QM SPEI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/166e51ee-534a-11ec-9143-02000a08f41d
-- Standardised Snow Pack Index (SSPI)
+
+**Standardised Snow Pack Index (SSPI)**
   - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Snow Pack Index - ERA5_QM SSPI-10 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/0ca021a6-7942-11ec-a314-02000a08f41d
-- Soil Moisture Anomalies (SMA)
-  - Greifeneder, F. (2022). Soil Moisture Anomalies - ERA5_QM (Version v1) [Data set]. Institute for Earth Observation. https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5 https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5
-- Vegetation Health Index (VHI) / Vegetation Condition Index (VCI)
+
+**Soil Moisture Anomalies (SMA)**
+  - Greifeneder, F. (2022). Soil Moisture Anomalies - ERA5_QM (Version v1) [Data set]. Eurac Research. https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5 https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5
+
+**Vegetation Health Index (VHI) / Vegetation Condition Index (VCI)**
   - Zellner, P., & Castelli, M. (2022). Vegetation Health Index - 231 m 8 days (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/161b3496-534a-11ec-b78a-02000a08f41d
 
-If you want to relate to the methodology, please cite the following data papers:
-
-- Standardised Precipitation Index (SPI)
-- Soil Moisture Anomalies (SMA)
-- Vegetation Health Index (VHI)
 
 ### Fact Sheets
 
