@@ -39,6 +39,7 @@ If you use any ADO drought indices from the [ADO Webportal](https://ado.eurac.ed
 - [Vegetation Condition Index (VCI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/VHI_4.pdf "VHI/VCI - Fact Sheet")
 
 ### Metadata and Raw Data Access on the Environmental Data Platform
+All ADO collections available on the EDP can be found using [this link](https://edp-portal.eurac.edu/discovery/?search=ado&json=no). 
 
 - [Standardised Precipitation Index (SPI)](https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d "SPI")
 - [Standardised Precipitation-Evapotranspiration Index (SPEI)](https://doi.org/10.48784/166E51EE-534A-11EC-9143-02000A08F41D "SPEI")
