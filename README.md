@@ -2,6 +2,9 @@
 
 Repository holding the data that is to be visualized on the public portal https://ado.eurac.edu (frontend repo https://github.com/Eurac-Research/ADO)
 
+## Data Usage and Citation
+If you are planning to use any data published in this repository, please read [About the Data](https://ado.eurac.edu/md/about-the-data) of the ADO webportal and cite them accordingly. 
+
 ## Contents
 
 - ./factsheets/
