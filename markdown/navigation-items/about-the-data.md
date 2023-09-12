@@ -11,7 +11,7 @@ The data shown on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-
 
 ## Drought Indices
 ### Citation
-If you use any ADO drought indices from the [ADO Webportal](https://ado.eurac.edu/) or its [Github data repository](https://github.com/Eurac-Research/ado-data), the [Environmental Data Platform](https://edp-portal.eurac.edu/home) (raw data access) please cite the data like shown here:
+If you use any ADO drought indices from the [ADO Webportal](https://ado.eurac.edu/) or its [Github data repository](https://github.com/Eurac-Research/ado-data), the [Environmental Data Platform](https://edp-portal.eurac.edu/discovery/?search=ado&json=no) (raw data access) please cite the data like shown here:
 
 **Standardised Precipitation Index (SPI)**
   - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation Index - ERA5_QM SPI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d
