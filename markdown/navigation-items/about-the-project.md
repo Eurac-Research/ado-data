@@ -30,3 +30,11 @@ ADO is the result of a fruitful partnership of
 - The French National Research Institute for Science and Technology in Environment and Agriculture - INRAE for case studies in the French Alps.
 - The province of Upper Austria for a case study
 - The project: Alpine drought observatory (ADO) was funded by Interreg alpine space program 2019 – 2022 [ADO - Alpine Space Programme](https://www.alpine-space.eu/project/ado/ "alpine-space.eu")
+
+### Keywords
+
+Trockenheit im Alpenraum, Dürre in den Alpen, Observatorium für Dürre in den Alpen
+Siccità nelle Alpi, Osservatorio della siccità nelle Alpi
+Suša v Alpah, Observatorij za sušo v Alpah
+Sécheresse dans l'espace alpin, Sécheresse dans les Alpes, Observatoire de la sécheresse dans les Alpes
+Drought in the Alps, Drought observatory in the Alps
