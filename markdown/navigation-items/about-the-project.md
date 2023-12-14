@@ -33,8 +33,8 @@ ADO is the result of a fruitful partnership of
 
 ### Keywords
 
-Trockenheit im Alpenraum, Dürre in den Alpen, Observatorium für Dürre in den Alpen
-Siccità nelle Alpi, Osservatorio della siccità nelle Alpi
-Suša v Alpah, Observatorij za sušo v Alpah
-Sécheresse dans l'espace alpin, Sécheresse dans les Alpes, Observatoire de la sécheresse dans les Alpes
+Trockenheit im Alpenraum, Dürre in den Alpen, Observatorium für Dürre in den Alpen  
+Siccità nelle Alpi, Osservatorio della siccità nelle Alpi  
+Suša v Alpah, Observatorij za sušo v Alpah  
+Sécheresse dans l'espace alpin, Sécheresse dans les Alpes, Observatoire de la sécheresse dans les Alpes  
 Drought in the Alps, Drought observatory in the Alps
