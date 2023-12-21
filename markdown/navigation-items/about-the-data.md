@@ -14,29 +14,24 @@ The data shown on this webpage is [CC-BY-4.0 licensed](https://github.com/Eurac-
 If you use any ADO drought indices from the [ADO Webportal](https://ado.eurac.edu/) or its [Github data repository](https://github.com/Eurac-Research/ado-data), the [Environmental Data Platform](https://edp-portal.eurac.edu/discovery/?search=ado&json=no) (raw data access) please cite the data like shown here:
 
 **Standardised Precipitation Index (SPI)**
-  - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation Index - ERA5_QM SPI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d
+  - *Data set:* Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation Index - ERA5_QM SPI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/15abe686-534a-11ec-b9ef-02000a08f41d
+  - *Factsheet:* Slovenian Environment Agency (ARSO), “ADO Factsheet: Standardized Precipitation Index (SPI).” Eurac Research - Institute for Earth Observation, 2023, doi: https://doi.org/10.48784/2F51D416-D73D-4C87-80B6-C4673B4F6CE1.
 
 **Standardised Precipitation-Evapotranspiration Index (SPEI)**
-  - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation-Evapotranspiration Index - ERA5_QM SPEI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/166e51ee-534a-11ec-9143-02000a08f41d
+  - *Data set:* Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Precipitation-Evapotranspiration Index - ERA5_QM SPEI-1 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/166e51ee-534a-11ec-9143-02000a08f41d
+  - *Factsheet:* Slovenian Environment Agency (ARSO), “ADO Factsheet: Standardized Precipitation-Evapotranspiration Index (SPEI).” Eurac Research - Institute for Earth Observation, 2023, doi: https://doi.org/10.48784/B36D76A8-CC57-4C6F-A1B5-6D12C860D104.
 
 **Standardised Snow Pack Index (SSPI)**
-  - Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Snow Pack Index - ERA5_QM SSPI-10 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/0ca021a6-7942-11ec-a314-02000a08f41d
+  - *Data set:* Slovenian Environment Agency, & Central Institution for Meteorology and Geodynamics. (2022). Standardised Snow Pack Index - ERA5_QM SSPI-10 (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/0ca021a6-7942-11ec-a314-02000a08f41d
+  - *Factsheet:* Slovenian Environment Agency (ARSO), “ADO Factsheet: Standardized Snowpack Index (SSPI).” Eurac Research - Institute for Earth Observation, 2023, doi: https://doi.org/10.48784/B7DB0A55-31AC-4339-BF60-A6124FB45915.
 
 **Soil Moisture Anomalies (SMA)**
-  - Greifeneder, F. (2022). Soil Moisture Anomalies - ERA5_QM (Version v1) [Data set]. Eurac Research. https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5 https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5
+  - *Data set:* Greifeneder, F. (2022). Soil Moisture Anomalies - ERA5_QM (Version v1) [Data set]. Eurac Research. https://doi.org/10.48784/ea665ca2-0ceb-11ed-86c5-02000a08f4e5
+  - *Factsheet:* Eurac Research, “ADO Factsheet: Soil Moisture Anomalies (SMA).” Eurac Research - Institute for Earth Observation, 2023, doi: https://doi.org/10.48784/5B9D5FD4-0AEE-4F18-BB51-1503339CF07A.
 
 **Vegetation Health Index (VHI) / Vegetation Condition Index (VCI)**
-  - Zellner, P., & Castelli, M. (2022). Vegetation Health Index - 231 m 8 days (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/161b3496-534a-11ec-b78a-02000a08f41d
-
-
-### Fact Sheets
-
-- [Standardised Precipitation Index (SPI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/SPI_4.pdf "SPI - Fact Sheet")
-- [Standardised Precipitation-Evapotranspiration Index (SPEI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/SPEI_4.pdf "SPEI - Fact Sheet")
-- [Standardised Snow Pack Index (SSPI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/SSPI_4.pdf "SSPI - Fact Sheet")
-- [Soil Moisture Anomalies (SMA)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/SMA_4.pdf "SMA - Fact Sheet")
-- [Vegetation Health Index (VHI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/VHI_4.pdf "VHI/VCI - Fact Sheet")
-- [Vegetation Condition Index (VCI)](https://raw.githubusercontent.com/Eurac-Research/ado-data/main/factsheets/VHI_4.pdf "VHI/VCI - Fact Sheet")
+  - *Data set:* Zellner, P., & Castelli, M. (2022). Vegetation Health Index - 231 m 8 days (Version 1.0) [Data set]. Eurac Research. https://doi.org/10.48784/161b3496-534a-11ec-b78a-02000a08f41d
+  - *Factsheet:* Eurac Research, “ADO Factsheet: Vegetation Health Index (VHI) and Vegetation Condition Index (VCI).” Eurac Research - Institute for Earth Observation, 2023, doi: https://doi.org/10.48784/D125C506-8144-4EDA-BFC1-80B7BAC6727C.
 
 ### Metadata and Raw Data Access on the Environmental Data Platform
 All ADO collections available on the EDP can be found using [this link](https://edp-portal.eurac.edu/discovery/?search=ado&json=no). 
