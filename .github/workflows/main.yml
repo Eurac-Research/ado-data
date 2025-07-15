@@ -88,14 +88,24 @@ jobs:
                 return null;
               }).filter(props => props !== null);
               
+              // Create output object with features and metadata
+              const outputData = {
+                features: propertiesOnly
+              };
+              
+              // Include metadata if it exists in the original GeoJSON
+              if (geojsonData.metadata) {
+                outputData.metadata = geojsonData.metadata;
+              }
+              
               // Create output filename: XXX-latest.geojson -> XXX-latest-features.json
               const baseName = path.basename(file, '.geojson');
               const outputFile = path.join(nutsDir, \`\${baseName}-features.json\`);
               
               // Write minified JSON (no spaces, no indentation)
-              fs.writeFileSync(outputFile, JSON.stringify(propertiesOnly));
+              fs.writeFileSync(outputFile, JSON.stringify(outputData));
               
-              console.log(\`Created: \${outputFile} with \${propertiesOnly.length} feature properties (minified, no geometry)\`);
+              console.log(\`Created: \${outputFile} with \${propertiesOnly.length} feature properties\${geojsonData.metadata ? ' and metadata' : ''} (minified, no geometry)\`);
               
               // Also create a minified version of the original geojson
               const minifiedGeojsonFile = path.join(nutsDir, \`\${baseName}.min.geojson\`);
