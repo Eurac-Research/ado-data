@@ -37,19 +37,15 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 1
+        filter: blob:none
         sparse-checkout: |
-          json/nuts
+          json/nuts/*.geojson
         sparse-checkout-cone-mode: false
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-    
-    - name: Install dependencies
-      run: |
-        npm install -g @turf/turf
-        npm install geojson-precision
     
     - name: Extract features from latest.geojson files
       run: |
@@ -81,18 +77,23 @@ jobs:
           try {
             const geojsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
             
-            // Extract features section
+            // Extract only properties from features (no geometry)
             if (geojsonData.features && Array.isArray(geojsonData.features)) {
-              const features = geojsonData.features;
+              const propertiesOnly = geojsonData.features.map(feature => {
+                if (feature.properties) {
+                  return feature.properties;
+                }
+                return null;
+              }).filter(props => props !== null);
               
               // Create output filename: XXX-latest.geojson -> XXX-latest-features.json
               const baseName = path.basename(file, '.geojson');
               const outputFile = path.join(nutsDir, \`\${baseName}-features.json\`);
               
-              // Write features to JSON file
-              fs.writeFileSync(outputFile, JSON.stringify(features, null, 2));
+              // Write properties to JSON file
+              fs.writeFileSync(outputFile, JSON.stringify(propertiesOnly, null, 2));
               
-              console.log(\`Created: \${outputFile} with \${features.length} features\`);
+              console.log(\`Created: \${outputFile} with \${propertiesOnly.length} feature properties (no geometry)\`);
             } else {
               console.log(\`No features array found in \${file}\`);
             }
