@@ -23,8 +23,88 @@ jobs:
         user_email: 'thomas.iacopino@eurac.edu'
         user_name: 'tiacopino'
         commit_msg: '[GHA] Update the files.'
+  
+  feature-extraction:
+    runs-on: ubuntu-latest
+    needs: copy-file
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Install dependencies
+      run: |
+        npm install -g @turf/turf
+        npm install geojson-precision
+    
+    - name: Extract features from latest.geojson files
+      run: |
+        node -e "
+        const fs = require('fs');
+        const path = require('path');
+        
+        // Process geojson files in json/nuts directory
+        const nutsDir = 'json/nuts';
+        if (!fs.existsSync(nutsDir)) {
+          console.log('json/nuts directory does not exist');
+          process.exit(0);
+        }
+        
+        // Find all XXX-latest.geojson files
+        const files = fs.readdirSync(nutsDir).filter(file => file.endsWith('-latest.geojson'));
+        
+        if (files.length === 0) {
+          console.log('No *-latest.geojson files found in json/nuts directory');
+          process.exit(0);
+        }
+        
+        console.log(\`Found \${files.length} *-latest.geojson files to process\`);
+        
+        files.forEach(file => {
+          const filePath = path.join(nutsDir, file);
+          console.log(\`Processing: \${file}\`);
+          
+          try {
+            const geojsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            
+            // Extract features section
+            if (geojsonData.features && Array.isArray(geojsonData.features)) {
+              const features = geojsonData.features;
+              
+              // Create output filename: XXX-latest.geojson -> XXX-latest-features.json
+              const baseName = path.basename(file, '.geojson');
+              const outputFile = path.join(nutsDir, \`\${baseName}-features.json\`);
+              
+              // Write features to JSON file
+              fs.writeFileSync(outputFile, JSON.stringify(features, null, 2));
+              
+              console.log(\`Created: \${outputFile} with \${features.length} features\`);
+            } else {
+              console.log(\`No features array found in \${file}\`);
+            }
+          } catch (error) {
+            console.error(\`Error processing \${file}: \${error.message}\`);
+          }
+        });
+        
+        console.log('Feature extraction completed successfully');
+        "
+    
+    - name: Commit and push extracted features
+      run: |
+        git config --local user.email "thomas.iacopino@eurac.edu"
+        git config --local user.name "tiacopino"
+        git add json/nuts/*-latest-features.json
+        git diff --staged --quiet || git commit -m "[GHA] Update extracted features from latest.geojson files"
+        git push
+  
   deployment:
     runs-on: ubuntu-latest
+    needs: feature-extraction
     steps:
     - name: Deploy to production on vercel
       uses: fjogeleit/http-request-action@master
