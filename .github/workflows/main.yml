@@ -9,7 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+        sparse-checkout: |
+          markdown
+        sparse-checkout-cone-mode: false
     
     - name: Pushes test folder
       uses: datalbry/copy_folder_to_another_repo_action@1.0.0
@@ -29,7 +34,12 @@ jobs:
     needs: copy-file
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+        sparse-checkout: |
+          json/nuts
+        sparse-checkout-cone-mode: false
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
