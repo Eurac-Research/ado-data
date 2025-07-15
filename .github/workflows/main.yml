@@ -40,6 +40,7 @@ jobs:
         filter: blob:none
         sparse-checkout: |
           json/nuts/*.geojson
+          json/nuts/*-latest-features.json
         sparse-checkout-cone-mode: false
     
     - name: Setup Node.js
@@ -109,7 +110,7 @@ jobs:
       run: |
         git config --local user.email "thomas.iacopino@eurac.edu"
         git config --local user.name "tiacopino"
-        git add json/nuts/*-latest-features.json
+        git add --sparse json/nuts/*-latest-features.json
         git diff --staged --quiet || git commit -m "[GHA] Update extracted features from latest.geojson files"
         git push
   
