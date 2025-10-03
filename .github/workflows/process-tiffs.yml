@@ -94,11 +94,14 @@ jobs:
             echo "Checking georeferencing..."
             gdalinfo "$colored_tiff" | grep -E "Upper Left|Lower Right|Pixel Size"
             
-            echo "Step 2/3: Creating optimized PNG (primary web format)..."
-            gdal_translate -of PNG \
-              -co ZLEVEL=9 \
+            echo "Step 2/3: Creating optimized JPEG (primary web format)..."
+            # Use JPEG for much smaller file sizes (5-10x smaller than PNG)
+            # QUALITY=85 provides good balance of quality and file size
+            jpeg_file="${optimized_png%.png}.jpg"
+            gdal_translate -of JPEG \
+              -co QUALITY=85 \
               -co WORLDFILE=YES \
-              "$colored_tiff" "$optimized_png"
+              "$colored_tiff" "$jpeg_file"
             
             echo "Step 3/3: Creating COG (for GIS/download)..."
             gdal_translate -of COG \
