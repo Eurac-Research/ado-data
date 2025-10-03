@@ -1,6 +1,6 @@
 # GDAL Color Relief for SSPI-10
 # Generated from: SSPI10D.json
-# Date: 2025-10-03T10:46:08.580Z
+# Date: 2025-10-03T11:07:59.009Z
 # Format: value R G B A
 
 -2 236 11 0 179
