@@ -24,24 +24,24 @@ function parseRGBA(rgbaString) {
 function convertMetadataToGDALColormap(metadataPath, outputDir = null) {
   // Read the metadata JSON
   const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-  
+
   const indexName = metadata.short_name;
   const stops = metadata.colormap?.paint?.['fill-color']?.stops;
-  
+
   if (!stops || !Array.isArray(stops)) {
     throw new Error('Invalid colormap format in metadata');
   }
-  
+
   console.log(`Converting ${indexName} colormap...`);
   console.log(`Found ${stops.length} color stops`);
-  
+
   // Convert to GDAL format
   // Format: value R G B [A]
   const gdalLines = stops.map(([value, color]) => {
     const [r, g, b, a] = parseRGBA(color);
     return `${value} ${r} ${g} ${b} ${a}`;
   });
-  
+
   // Add header comment
   const header = [
     `# GDAL Color Relief for ${indexName}`,
@@ -50,17 +50,17 @@ function convertMetadataToGDALColormap(metadataPath, outputDir = null) {
     `# Format: value R G B A`,
     ''
   ];
-  
+
   const outputContent = [...header, ...gdalLines].join('\n');
-  
+
   // Write output file
-  const outputPath = outputDir 
+  const outputPath = outputDir
     ? path.join(outputDir, `${indexName}-colormap.txt`)
     : path.join(path.dirname(metadataPath), `${indexName}-colormap.txt`);
-  
+
   fs.writeFileSync(outputPath, outputContent);
   console.log(`✓ Created: ${outputPath}`);
-  
+
   return outputPath;
 }
 
@@ -68,18 +68,18 @@ function convertMetadataToGDALColormap(metadataPath, outputDir = null) {
 if (require.main === module) {
   const metadataPath = process.argv[2];
   const outputDir = process.argv[3];
-  
+
   if (!metadataPath) {
     console.error('Usage: node convert-metadata-to-gdal-colormap.js <metadata.json> [outputDir]');
     console.error('Example: node convert-metadata-to-gdal-colormap.js json/nuts/metadata/VHI.json tiffs/colormaps');
     process.exit(1);
   }
-  
+
   if (!fs.existsSync(metadataPath)) {
     console.error(`Error: File not found: ${metadataPath}`);
     process.exit(1);
   }
-  
+
   try {
     convertMetadataToGDALColormap(metadataPath, outputDir);
   } catch (error) {

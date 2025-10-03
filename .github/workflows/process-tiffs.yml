@@ -83,13 +83,31 @@ jobs:
             fi
             
             echo "Step 1/3: Colorizing..."
-            gdaldem color-relief "$raw_tiff" "$colormap" "$colored_tiff" -alpha -co COMPRESS=LZW -co PREDICTOR=2 -co TILED=YES
+            gdaldem color-relief "$raw_tiff" "$colormap" "$colored_tiff" \
+              -alpha \
+              -co COMPRESS=LZW \
+              -co PREDICTOR=2 \
+              -co TILED=YES \
+              -co COPY_SRC_OVERVIEWS=YES
+            
+            # Verify georeferencing is preserved
+            echo "Checking georeferencing..."
+            gdalinfo "$colored_tiff" | grep -E "Upper Left|Lower Right|Pixel Size"
             
             echo "Step 2/3: Creating optimized PNG (primary web format)..."
-            gdal_translate -of PNG -co ZLEVEL=9 "$colored_tiff" "$optimized_png"
+            gdal_translate -of PNG \
+              -co ZLEVEL=9 \
+              -co WORLDFILE=YES \
+              "$colored_tiff" "$optimized_png"
             
             echo "Step 3/3: Creating COG (for GIS/download)..."
-            gdal_translate -of COG -co COMPRESS=JPEG -co QUALITY=75 -co PHOTOMETRIC=YCBCR -co NUM_THREADS=ALL_CPUS -co BLOCKSIZE=512 "$colored_tiff" "$optimized_tiff"
+            gdal_translate -of COG \
+              -co COMPRESS=JPEG \
+              -co QUALITY=75 \
+              -co PHOTOMETRIC=YCBCR \
+              -co NUM_THREADS=ALL_CPUS \
+              -co BLOCKSIZE=512 \
+              "$colored_tiff" "$optimized_tiff"
             
             rm -f "$colored_tiff"
             
