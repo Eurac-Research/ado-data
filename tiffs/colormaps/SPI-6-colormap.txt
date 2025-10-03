@@ -1,6 +1,6 @@
 # GDAL Color Relief for SPI-6
 # Generated from: SPI-6.json
-# Date: 2025-10-03T11:07:58.956Z
+# Date: 2025-10-03T11:11:26.596Z
 # Format: value R G B A
 
 -2 215 25 28 179

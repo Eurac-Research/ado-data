@@ -1,6 +1,6 @@
 # GDAL Color Relief for CDI
 # Generated from: CDI.json
-# Date: 2025-10-03T11:07:58.661Z
+# Date: 2025-10-03T11:11:26.294Z
 # Format: value R G B A
 
 0 255 255 255 179
