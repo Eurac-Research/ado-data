@@ -82,7 +82,7 @@ jobs:
               continue
             fi
             
-            echo "Step 1/3: Colorizing..."
+            echo "Step 1/4: Colorizing..."
             gdaldem color-relief "$raw_tiff" "$colormap" "$colored_tiff" \
               -alpha \
               -co COMPRESS=LZW \
@@ -94,9 +94,16 @@ jobs:
             echo "Checking georeferencing..."
             gdalinfo "$colored_tiff" | grep -E "Upper Left|Lower Right|Pixel Size"
             
-            echo "Step 2/2: Creating Cloud-Optimized GeoTIFF (COG)..."
-            # Create COG with JPEG compression - this is what we'll use for both
-            # georeferencing metadata AND display (client will render to canvas)
+            echo "Step 2/4: Creating JPG for web display (correct colors)..."
+            # Create JPG before COG compression to preserve accurate colors
+            jpeg_file="${optimized_png%.png}.jpg"
+            gdal_translate -of JPEG \
+              -co QUALITY=85 \
+              -co WORLDFILE=YES \
+              "$colored_tiff" "$jpeg_file"
+            
+            echo "Step 3/4: Creating Cloud-Optimized GeoTIFF (for georeferencing)..."
+            # Create COG with JPEG compression - used only for georeferencing metadata
             gdal_translate -of COG \
               -co COMPRESS=JPEG \
               -co QUALITY=85 \
