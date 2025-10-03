@@ -1,6 +1,6 @@
 # GDAL Color Relief for VHI
 # Generated from: VHI.json
-# Date: 2025-10-03T11:55:23.966Z
+# Date: 2025-10-03T13:31:50.260Z
 # Format: value R G B A
 
 0 132 76 20 179
