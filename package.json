@@ -1,0 +1,14 @@
+{
+  "name": "ado-data",
+  "version": "1.0.0",
+  "description": "Alpine Drought Observatory Data Repository",
+  "scripts": {
+    "convert-colormaps": "node scripts/convert-metadata-to-gdal-colormap.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eurac-Research/ado-data.git"
+  },
+  "author": "Eurac Research",
+  "license": "MIT"
+}
