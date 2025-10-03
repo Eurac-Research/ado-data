@@ -1,6 +1,6 @@
 # GDAL Color Relief for VCI
 # Generated from: VCI.json
-# Date: 2025-10-03T11:11:26.678Z
+# Date: 2025-10-03T11:55:23.941Z
 # Format: value R G B A
 
 0 132 76 20 179

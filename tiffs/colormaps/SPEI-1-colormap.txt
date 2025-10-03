@@ -1,6 +1,6 @@
 # GDAL Color Relief for SPEI-1
 # Generated from: SPEI-1.json
-# Date: 2025-10-03T11:11:26.347Z
+# Date: 2025-10-03T11:55:23.630Z
 # Format: value R G B A
 
 -2 215 25 28 179
