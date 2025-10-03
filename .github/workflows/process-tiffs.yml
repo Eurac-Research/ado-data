@@ -73,6 +73,7 @@ jobs:
             output_dir="tiffs/optimized/${index}/${year}"
             mkdir -p "$output_dir"
             
+            reprojected_tiff="${output_dir}/week-${week}-reprojected.tif"
             colored_tiff="${output_dir}/week-${week}-colored.tif"
             optimized_tiff="${output_dir}/week-${week}.tif"
             optimized_png="${output_dir}/week-${week}.png"
@@ -82,8 +83,19 @@ jobs:
               continue
             fi
             
-            echo "Step 1/4: Colorizing..."
-            gdaldem color-relief "$raw_tiff" "$colormap" "$colored_tiff" \
+            echo "Step 1/5: Reprojecting from EPSG:3035 to EPSG:3857 (Web Mercator)..."
+            # Reproject to Web Mercator for perfect alignment with Mapbox
+            gdalwarp -overwrite \
+              -s_srs EPSG:3035 \
+              -t_srs EPSG:3857 \
+              -r bilinear \
+              -co COMPRESS=LZW \
+              -co PREDICTOR=2 \
+              -co TILED=YES \
+              "$raw_tiff" "$reprojected_tiff"
+            
+            echo "Step 2/5: Colorizing..."
+            gdaldem color-relief "$reprojected_tiff" "$colormap" "$colored_tiff" \
               -alpha \
               -co COMPRESS=LZW \
               -co PREDICTOR=2 \
@@ -94,7 +106,7 @@ jobs:
             echo "Checking georeferencing..."
             gdalinfo "$colored_tiff" | grep -E "Upper Left|Lower Right|Pixel Size"
             
-            echo "Step 2/4: Creating JPG for web display (correct colors)..."
+            echo "Step 3/5: Creating JPG for web display (correct colors)..."
             # Create JPG before COG compression to preserve accurate colors
             jpeg_file="${optimized_png%.png}.jpg"
             gdal_translate -of JPEG \
@@ -102,7 +114,7 @@ jobs:
               -co WORLDFILE=YES \
               "$colored_tiff" "$jpeg_file"
             
-            echo "Step 3/4: Creating Cloud-Optimized GeoTIFF (for georeferencing)..."
+            echo "Step 4/5: Creating Cloud-Optimized GeoTIFF (for georeferencing)..."
             # Create COG with JPEG compression - used only for georeferencing metadata
             gdal_translate -of COG \
               -co COMPRESS=JPEG \
@@ -112,7 +124,7 @@ jobs:
               -co BLOCKSIZE=512 \
               "$colored_tiff" "$optimized_tiff"
             
-            rm -f "$colored_tiff"
+            rm -f "$reprojected_tiff" "$colored_tiff"
             
             original_size=$(du -h "$raw_tiff" | cut -f1)
             optimized_size=$(du -h "$optimized_tiff" | cut -f1)
