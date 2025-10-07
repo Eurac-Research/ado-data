@@ -55,7 +55,7 @@ All ADO collections available on the EDP can be found using [this link](https://
 
 ### Citation
 
-- TBD
+Bertoldi, G., & Quintero, D. (2022). ADO - Discharge hydrological datasets [Data set]. Eurac Research. https://doi.org/10.48784/9E195271-02AE-40BE-B3A7-525F57F53C80
 
 ### Access to Hydrological Database
 
