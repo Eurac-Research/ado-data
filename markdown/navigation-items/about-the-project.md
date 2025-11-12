@@ -3,7 +3,6 @@ title: About the Project
 slug: about-the-project
 ---
 
-# About the Project
 
 ## 1. Background & Motivation  
 Droughts are an increasing concern in the Alpine region and in the lowland areas that rely on Alpine water supplies.  
