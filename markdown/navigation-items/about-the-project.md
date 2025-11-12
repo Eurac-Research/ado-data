@@ -13,6 +13,9 @@ The **Alpine Drought Observatory (ADO)** provides a tool for a quick and easy ov
 ADO integrates data from climate models, satellite observations and ground-station networks across all Alpine countries.  
 It harmonises this information and updates it on a regular basis. Users can access **open-data (CC-BY 4.0)** through the web interface, selecting different drought indices (such as SPI, SPEI, SSPI, vegetation indices, hydrological data) to explore drought conditions by region and over time.
 
+### Development & Data-in-Action Initiative
+The ADO platform was developed in close collaboration with **Eurac Research's Communication Department** as part of their **[Data-in-Action initiative](https://www.eurac.edu/en/data-in-action)**. Together, we turned years of satellite observations, climate data, and ground measurements into a tool that speaks directly to those who need it — farmers tracking water stress, water managers planning resources, policymakers preparing for climate impacts. Data-in-Action is about making science work for communities, turning research into real-world solutions that help protect the Alps and the people who depend on them.
+
 ### Partners & Scope  
 The ADO project (2019-2022) brought together a consortium of research institutions and national/regional agencies across the Alpine Space.  
 It was applied in six case studies across the Alpine countries, addressing agricultural drought, hydrological drought, and ecosystem impacts.
