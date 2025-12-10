@@ -5,7 +5,7 @@ Repository holding the data that is to be visualized on the public portal https:
 ## Data Usage and Citation
 If you are planning to use any data published in this repository, please read [About the Data](https://ado.eurac.edu/md/about-the-data) of the ADO webportal and cite them accordingly. 
 
-## Contents
+## Contents 
 
 - ./factsheets/
   - holding the factsheets (.pdfs) describing the drought indices.
