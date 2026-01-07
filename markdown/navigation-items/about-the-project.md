@@ -10,7 +10,7 @@ The **Alpine Drought Observatory (ADO)** provides a tool for a quick and easy ov
 
 ## 2. The ADO Phase (Monitoring)  
 ### What was done  
-ADO integrates data from climate models, satellite observations and ground-station networks across all Alpine countries.  
+ADO integrates data from climate models, satellite observations, and ground-station networks across all Alpine countries.  
 It harmonises this information and updates it on a regular basis. Users can access **open-data (CC-BY 4.0)** through the web interface, selecting different drought indices (such as SPI, SPEI, SSPI, vegetation indices, hydrological data) to explore drought conditions by region and over time.
 
 ### Development & Data-in-Action Initiative
@@ -29,13 +29,13 @@ Learn more:
 - [ADO project on Alpine Space](https://www.alpine-space.eu/project/ado/)  
 - [EURAC Research project page](https://www.eurac.edu/en/institutes-centers/institute-for-earth-observation/projects/ado)
 
-## 3. The A-DROP Phase (Forecasting & Services)  
+## 3. The A-DROP Phase (Forecasting & Drought risk management tools)  
 ### Why the next step  
 Building on the successful ADO phase, the work is now being advanced and expanded through the new **A-DROP** project (Alpine DROught Prediction) under the **Interreg Alpine Space 2021-2027** programme.  
-The focus shifts from primarily monitoring to **forecasting, operational services**, and tailored sectoral solutions.
+The focus shifts from primarily monitoring to **forecasting, pre-operational services**, and tailored sectoral solutions.
 
 ### What A-DROP does  
-- Develops a **multi-sectoral drought forecasting system** that combines the existing ADO monitoring infrastructure with new datasets, prediction tools and tailored services for sectors such as hydropower, agriculture and winter tourism.  
+- Develops a **multi-sectoral drought forecasting system** that combines the existing ADO monitoring infrastructure with new datasets, prediction tools and tailored prototype services for sectors such as hydropower, agriculture and winter tourism.  
 - Involves 11 partners from five Alpine-Space countries — from research institutions to public administrations.  
 - Implements real-life pilot studies (in agriculture, hydropower, snow/water management) and regional climate model simulations to estimate future drought conditions.  
 - Offers tailored training and outreach events to ensure the transition from research to operational practice and to support water governance.  
