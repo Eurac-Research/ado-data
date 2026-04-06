@@ -30,7 +30,7 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       run: |
         git clone --depth 1 --branch main \
-          "https://x-access-token:${API_TOKEN_GITHUB}@github.com/Eurac-Research/ADO.git" \
+          "https://tiacopino:${API_TOKEN_GITHUB}@github.com/Eurac-Research/ADO.git" \
           destination-repo
 
     - name: Copy markdown and push
@@ -49,7 +49,7 @@ jobs:
           exit 0
         fi
         git commit -m "[GHA] Update the files."
-        git remote set-url origin "https://x-access-token:${API_TOKEN_GITHUB}@github.com/Eurac-Research/ADO.git"
+        git remote set-url origin "https://tiacopino:${API_TOKEN_GITHUB}@github.com/Eurac-Research/ADO.git"
         git push origin HEAD:main
   
   feature-extraction:
