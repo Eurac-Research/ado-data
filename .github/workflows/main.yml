@@ -16,18 +16,30 @@ jobs:
           markdown
         sparse-checkout-cone-mode: false
     
-    - name: Pushes test folder
-      uses: datalbry/copy_folder_to_another_repo_action@1.0.0
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+    - name: Checkout destination repository
+      uses: actions/checkout@v4
       with:
-        source_folder: 'markdown'
-        destination_repo: 'Eurac-Research/ADO'
-        destination_folder: '_posts/markdown'
-        destination_branch: 'main'
-        user_email: 'thomas.iacopino@eurac.edu'
-        user_name: 'tiacopino'
-        commit_msg: '[GHA] Update the files.'
+        repository: Eurac-Research/ADO
+        ref: main
+        token: ${{ secrets.API_TOKEN_GITHUB }}
+        path: destination-repo
+        fetch-depth: 1
+
+    - name: Copy markdown and push
+      run: |
+        set -euo pipefail
+        mkdir -p destination-repo/_posts/markdown
+        rsync -a --delete markdown/ destination-repo/_posts/markdown/
+        cd destination-repo
+        git config user.email "thomas.iacopino@eurac.edu"
+        git config user.name "tiacopino"
+        git add _posts/markdown
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        git commit -m "[GHA] Update the files."
+        git push origin HEAD:main
   
   feature-extraction:
     runs-on: ubuntu-latest
