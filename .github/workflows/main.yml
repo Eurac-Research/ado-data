@@ -16,16 +16,26 @@ jobs:
           markdown
         sparse-checkout-cone-mode: false
     
-    - name: Checkout destination repository
-      uses: actions/checkout@v4
-      with:
-        repository: Eurac-Research/ADO
-        ref: main
-        token: ${{ secrets.API_TOKEN_GITHUB }}
-        path: destination-repo
-        fetch-depth: 1
+    - name: Verify destination token
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      run: |
+        if [ -z "${API_TOKEN_GITHUB}" ]; then
+          echo "::error::Missing secret API_TOKEN_GITHUB"
+          exit 1
+        fi
+
+    - name: Clone destination repository
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      run: |
+        git clone --depth 1 --branch main \
+          "https://x-access-token:${API_TOKEN_GITHUB}@github.com/Eurac-Research/ADO.git" \
+          destination-repo
 
     - name: Copy markdown and push
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
       run: |
         set -euo pipefail
         mkdir -p destination-repo/_posts/markdown
@@ -39,6 +49,7 @@ jobs:
           exit 0
         fi
         git commit -m "[GHA] Update the files."
+        git remote set-url origin "https://x-access-token:${API_TOKEN_GITHUB}@github.com/Eurac-Research/ADO.git"
         git push origin HEAD:main
   
   feature-extraction:
