@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
         sparse-checkout: |
@@ -57,7 +57,7 @@ jobs:
     needs: copy-file
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         fetch-depth: 1
         filter: blob:none
@@ -68,7 +68,7 @@ jobs:
         sparse-checkout-cone-mode: false
     
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
         node-version: '18'
     
@@ -180,7 +180,10 @@ jobs:
     needs: feature-extraction
     steps:
     - name: Deploy to production on vercel
-      uses: fjogeleit/http-request-action@master
-      with:
-        url: ${{secrets.TRIGGERVERCELBUILD}}
-        method: 'POST'
+      env:
+        TRIGGERVERCELBUILD: ${{ secrets.TRIGGERVERCELBUILD }}
+      run: |
+        set -euo pipefail
+        curl --fail --silent --show-error \
+          --request POST \
+          "$TRIGGERVERCELBUILD"
