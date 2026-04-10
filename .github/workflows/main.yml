@@ -65,6 +65,8 @@ jobs:
           json/nuts/*.geojson
           json/nuts/*-latest-features.json
           json/nuts/*.min.geojson
+          scripts/extract-nuts-features.js
+          scripts/json-utils.js
         sparse-checkout-cone-mode: false
     
     - name: Setup Node.js
@@ -73,98 +75,7 @@ jobs:
         node-version: '18'
     
     - name: Extract features from latest.geojson files
-      run: |
-        node -e "
-        const fs = require('fs');
-        const path = require('path');
-        
-        // Process geojson files in json/nuts directory
-        const nutsDir = 'json/nuts';
-        if (!fs.existsSync(nutsDir)) {
-          console.log('json/nuts directory does not exist');
-          process.exit(0);
-        }
-        
-        // Find all XXX-latest.geojson files
-        const files = fs.readdirSync(nutsDir).filter(file => file.endsWith('-latest.geojson'));
-        
-        if (files.length === 0) {
-          console.log('No *-latest.geojson files found in json/nuts directory');
-          process.exit(0);
-        }
-        
-        console.log(\`Found \${files.length} *-latest.geojson files to process\`);
-        
-        files.forEach(file => {
-          const filePath = path.join(nutsDir, file);
-          console.log(\`Processing: \${file}\`);
-          
-          try {
-            const geojsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            
-            // Extract only properties from features (no geometry)
-            if (geojsonData.features && Array.isArray(geojsonData.features)) {
-              const propertiesOnly = geojsonData.features.map(feature => {
-                if (feature.properties) {
-                  return feature.properties;
-                }
-                return null;
-              }).filter(props => props !== null);
-              
-              // Create output object with features and metadata
-              const outputData = {
-                features: propertiesOnly
-              };
-              
-              // Include metadata if it exists in the original GeoJSON
-              if (geojsonData.metadata) {
-                outputData.metadata = geojsonData.metadata;
-              }
-              
-              // Create output filename: XXX-latest.geojson -> XXX-latest-features.json
-              const baseName = path.basename(file, '.geojson');
-              const outputFile = path.join(nutsDir, \`\${baseName}-features.json\`);
-              
-              // Write minified JSON (no spaces, no indentation)
-              fs.writeFileSync(outputFile, JSON.stringify(outputData));
-              
-              console.log(\`Created: \${outputFile} with \${propertiesOnly.length} feature properties\${geojsonData.metadata ? ' and metadata' : ''} (minified, no geometry)\`);
-              
-              // Also create a minified version of the original geojson
-              const minifiedGeojsonFile = path.join(nutsDir, \`\${baseName}.min.geojson\`);
-              
-              // Round coordinates to reduce precision (6 decimal places is usually sufficient)
-              const minifiedGeojson = {
-                ...geojsonData,
-                features: geojsonData.features.map(feature => ({
-                  ...feature,
-                  geometry: feature.geometry ? {
-                    ...feature.geometry,
-                    coordinates: roundCoordinates(feature.geometry.coordinates, 6)
-                  } : feature.geometry
-                }))
-              };
-              
-              fs.writeFileSync(minifiedGeojsonFile, JSON.stringify(minifiedGeojson));
-              console.log(\`Created: \${minifiedGeojsonFile} (minified geojson)\`);
-            } else {
-              console.log(\`No features array found in \${file}\`);
-            }
-          } catch (error) {
-            console.error(\`Error processing \${file}: \${error.message}\`);
-          }
-        });
-        
-        // Helper function to round coordinates
-        function roundCoordinates(coords, precision) {
-          if (Array.isArray(coords)) {
-            return coords.map(coord => roundCoordinates(coord, precision));
-          }
-          return Math.round(coords * Math.pow(10, precision)) / Math.pow(10, precision);
-        }
-        
-        console.log('Feature extraction completed successfully');
-        "
+      run: node scripts/extract-nuts-features.js
     
     - name: Commit and push extracted features
       run: |

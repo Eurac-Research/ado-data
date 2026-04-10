@@ -37,6 +37,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+const { parseJsonWithFallback } = require('./scripts/json-utils');
 
 // Configuration constants
 const CONFIG = {
@@ -135,9 +136,9 @@ function minifyJsonFile(filePath) {
     // Validate JSON structure
     let parsed;
     try {
-      parsed = JSON.parse(content);
+      ({ data: parsed } = parseJsonWithFallback(content, filePath, console));
     } catch (parseError) {
-      console.error(`❌ Invalid JSON in file ${filePath}:`, parseError.message);
+      console.error(`❌ ${parseError.message}`);
       return false;
     }
     
