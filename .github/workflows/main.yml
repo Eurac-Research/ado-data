@@ -64,7 +64,6 @@ jobs:
         sparse-checkout: |
           json/nuts/*.geojson
           json/nuts/*-latest-features.json
-          json/nuts/*.min.geojson
           scripts/extract-nuts-features.js
           scripts/json-utils.js
         sparse-checkout-cone-mode: false
@@ -82,8 +81,7 @@ jobs:
         git config --local user.email "thomas.iacopino@eurac.edu"
         git config --local user.name "tiacopino"
         git add --sparse json/nuts/*-latest-features.json
-        git add --sparse json/nuts/*.min.geojson
-        git diff --staged --quiet || git commit -m "[GHA] Update minified features and geojson files"
+        git diff --staged --quiet || git commit -m "[GHA] Update feature-only JSON files"
         git push
   
   deployment:

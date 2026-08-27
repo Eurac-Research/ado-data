@@ -76,9 +76,9 @@ jobs:
             reprojected_tiff="${output_dir}/week-${week}-reprojected.tif"
             colored_tiff="${output_dir}/week-${week}-colored.tif"
             optimized_tiff="${output_dir}/week-${week}.tif"
-            optimized_png="${output_dir}/week-${week}.png"
-            
-            if [ -f "$optimized_tiff" ] && [ -f "$optimized_png" ]; then
+            optimized_jpg="${output_dir}/week-${week}.jpg"
+
+            if [ -f "$optimized_tiff" ] && [ -f "$optimized_jpg" ]; then
               echo "Already processed, skipping..."
               continue
             fi

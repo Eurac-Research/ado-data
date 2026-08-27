@@ -4,14 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const { parseJsonWithFallback } = require('./json-utils');
 
-function roundCoordinates(coords, precision) {
-  if (Array.isArray(coords)) {
-    return coords.map((coord) => roundCoordinates(coord, precision));
-  }
-
-  return Math.round(coords * Math.pow(10, precision)) / Math.pow(10, precision);
-}
-
 function main() {
   const nutsDir = path.join('json', 'nuts');
 
@@ -66,22 +58,6 @@ function main() {
           `${geojsonData.metadata ? ' and metadata' : ''} (minified, no geometry)`
       );
 
-      const minifiedGeojsonFile = path.join(nutsDir, `${baseName}.min.geojson`);
-      const minifiedGeojson = {
-        ...geojsonData,
-        features: geojsonData.features.map((feature) => ({
-          ...feature,
-          geometry: feature.geometry
-            ? {
-                ...feature.geometry,
-                coordinates: roundCoordinates(feature.geometry.coordinates, 6)
-              }
-            : feature.geometry
-        }))
-      };
-
-      fs.writeFileSync(minifiedGeojsonFile, JSON.stringify(minifiedGeojson));
-      console.log(`Created: ${minifiedGeojsonFile} (minified geojson)`);
     } catch (error) {
       errorCount += 1;
       console.error(`Error processing ${file}: ${error.message}`);
